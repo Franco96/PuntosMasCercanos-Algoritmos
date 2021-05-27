@@ -1,5 +1,8 @@
+package algoritmos;
+
 import java.util.ArrayList;
 import java.util.List;
+import utilidades.*;
 
 
 
@@ -12,8 +15,7 @@ public class Simple {
 		
 		//Tienen que ser positivos los puntos [0,10^9]
 		
-		
-
+	
 	
 		ArrayList<Punto> listaPuntos = new ArrayList<Punto>( );
 		
@@ -50,7 +52,7 @@ public class Simple {
 				
 			for (int j=i+1; j<listaPuntos.size();j++){
 					
-				double distanciaActual = distancia(listaPuntos.get(i),listaPuntos.get(j));
+				double distanciaActual = Utilidades.distancia(listaPuntos.get(i),listaPuntos.get(j));
 				
 				
 				if(distToReturn>distanciaActual){
@@ -71,11 +73,6 @@ public class Simple {
 	}
 	
 	
-	public static double distancia(Punto p1,Punto p2) {
-		long dx = (p1.getX() - p2.getX()); 
-		long dy = (p1.getY() - p2.getY());
-		return Math.sqrt(dx*dx + dy*dy); 
-		
-	}
+	
 
 }
