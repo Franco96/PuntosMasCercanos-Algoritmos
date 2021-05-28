@@ -72,7 +72,7 @@ public class DyC_SinYOrdenado {
 	    
 	    
         listaIzquierda =  listaPuntos.subList(0, medio);
-        listaDerecha = listaPuntos.subList(medio+1, n);
+        listaDerecha = listaPuntos.subList(medio, n);
 	    
 	    
 	    Par parIzq = DyC_PuntosCercanos(listaIzquierda);
@@ -93,10 +93,11 @@ public class DyC_SinYOrdenado {
 	    	
 	    }
 	    
+	    Par parFranja = null;
+	    if(franja.size() > 1)
+	    	  parFranja = masCercanoEnFranja(franja,min);
 	    
-	    Par parFranja = masCercanoEnFranja(franja,min);
-	    
-	    if(parFranja.getDistancia()<min)
+	    if(parFranja!=null && parFranja.getDistancia()<min)
 	    	return parFranja;
 	    else{
 	    	
@@ -110,6 +111,16 @@ public class DyC_SinYOrdenado {
 	     
 	   
 	}
+	
+	
+	public static Par dyC_PuntosCercanosCascara(List<Punto> listaPuntos){
+		
+		Utilidades.quicksortParaX((ArrayList<Punto>) listaPuntos, 0, listaPuntos.size()-1);
+		
+		
+		return DyC_PuntosCercanos(listaPuntos);
+		
+	} 
 	 
 	
 	
