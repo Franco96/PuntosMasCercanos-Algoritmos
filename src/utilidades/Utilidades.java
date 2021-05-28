@@ -8,8 +8,8 @@ public  class Utilidades {
 	
 	
 	public static double distancia(Punto p1,Punto p2) {
-		long dx = (p1.getX() - p2.getX()); 
-		long dy = (p1.getY() - p2.getY());
+		double dx = (p1.getX() - p2.getX()); 
+		double dy = (p1.getY() - p2.getY());
 		return Math.sqrt(dx*dx + dy*dy); 
 		
 	}

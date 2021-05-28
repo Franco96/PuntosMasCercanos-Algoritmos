@@ -1,7 +1,9 @@
 package algoritmos;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 import utilidades.*;
 
 
@@ -28,9 +30,9 @@ public class Simple {
 		listaPuntos.add(new Punto(14440, 3));
 	
 			
-		Punto [] puntosMasCercanos = algoritmoBasico(listaPuntos);
+		Par puntosMasCercanos = algoritmoBasico(listaPuntos);
 		
-		System.out.println(puntosMasCercanos[0].toString()+"-"+puntosMasCercanos[1].toString());
+		System.out.println("Tiempo de ejecucion "+puntosMasCercanos.getTiempo());
 		
 		
 		
@@ -41,12 +43,16 @@ public class Simple {
 	
 	
 	
-	public static Punto[] algoritmoBasico(List<Punto> listaPuntos ){
+	public static Par algoritmoBasico(List<Punto> listaPuntos ){
 		
-		Punto [] puntosMasCercanos = {new Punto(0, 0),new Punto(0, 0)}; 
+		double Inicio = new Date().getTime(); //Tomamos la fecha de inicio
+		
+		 Par Solucion = new Par();
+		
+		
 	
 		
-		double distToReturn = Double.MAX_VALUE;
+		 Solucion.setDistancia(Double.MAX_VALUE); //Como buscamos la distncia minima, inicializamos la variale con el valor maximo
 		
 		for(int i= 0;i<listaPuntos.size();i++){
 				
@@ -55,11 +61,13 @@ public class Simple {
 				double distanciaActual = Utilidades.distancia(listaPuntos.get(i),listaPuntos.get(j));
 				
 				
-				if(distToReturn>distanciaActual){
+				if(Solucion.getDistancia()>distanciaActual){
 					
-					distToReturn = distanciaActual;
-					puntosMasCercanos[0] = listaPuntos.get(i);
-					puntosMasCercanos[1] = listaPuntos.get(j);
+					  	Solucion.setDistancia(distanciaActual);
+	                    Solucion.setP1(listaPuntos.get(i));
+	                    Solucion.setP2(listaPuntos.get(j));
+					
+				
 				}
 				
 				
@@ -68,7 +76,12 @@ public class Simple {
 		}
 		
 		
-		return puntosMasCercanos;
+		 double Fin = new Date().getTime(); 
+	       
+		 Solucion.setTiempo(Fin - Inicio);
+		
+		
+		return Solucion;
 			
 	}
 	

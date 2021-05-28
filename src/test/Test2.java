@@ -20,9 +20,9 @@ public class Test2 {
 		listaPuntos.add(new Punto(44410, 3));
 		
 		
-		double dist = DyC_SinYOrdenado.masCercanoEnFranja(listaPuntos, listaPuntos.size(), 1.5);
+		//double dist = DyC_SinYOrdenado.masCercanoEnFranja(listaPuntos, listaPuntos.size(), 1.5);
 	
-	System.out.print(dist);
+	//System.out.print(dist);
 	
 	}
 	
