@@ -1,6 +1,9 @@
 package utilidades;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public  class Utilidades {
 	
@@ -14,7 +17,7 @@ public  class Utilidades {
 		
 	}
 	
-	
+	/*
 	public static void quicksortParaX(ArrayList<Punto> A, int izq, int der) {
 
 		  Punto pivote=A.get(izq); // tomamos primer elemento como pivote
@@ -24,7 +27,7 @@ public  class Utilidades {
 		 
 		  while(i < j){                          // mientras no se crucen las búsquedas                                   
 		     
-			  while(A.get(i).getX() <= pivote.getX() && i < j) i++; // busca elemento mayor que pivote
+			 while(A.get(i).getX() <= pivote.getX() && i < j) i++; // busca elemento mayor que pivote
 		     
 		     while(A.get(j).getX() > pivote.getX()) j--;           // busca elemento menor que pivote
 		     
@@ -72,7 +75,6 @@ public  class Utilidades {
 		         A.set(i, A.get(j));
 		         A.set(j, aux);
 		         
-		       
 		     }
 		   }
 		   
@@ -87,6 +89,43 @@ public  class Utilidades {
 		      quicksortParaY(A,j+1,der);        
 		   
 		}
+	*/
+	
+	public static List<Punto> ordenarPorX(List<Punto> listaPuntos){
+		
+		Comparator<Punto> customComparator = new Comparator<Punto>() {
+			   
+			@Override
+			public int compare(Punto o1, Punto o2) {
+				 if(o1.getX() > o2.getX())
+			            return 1;
+			        else return -1;
+			}
+		};
+		
+		return listaPuntos.stream()
+		        .sorted(customComparator)
+		        .collect(Collectors.toList());
+		
+	}
+	
+public static List<Punto> ordenarPorY(List<Punto> listaPuntos){
+		
+		Comparator<Punto> customComparator = new Comparator<Punto>() {
+			   
+			@Override
+			public int compare(Punto o1, Punto o2) {
+				 if(o1.getY() > o2.getY())
+			            return 1;
+			        else return -1;
+			}
+		};
+		
+		return listaPuntos.stream()
+		        .sorted(customComparator)
+		        .collect(Collectors.toList());
+		
+	}
 	
 	
 }

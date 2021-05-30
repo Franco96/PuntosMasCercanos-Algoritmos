@@ -3,12 +3,14 @@ package algoritmos;
 import java.util.ArrayList;
 import java.util.List;
 
-import utilidades.*;
+import utilidades.Par;
+import utilidades.Punto;
+import utilidades.Utilidades;
 
-public class DyC_SinYOrdenado {
+public class AlgorimoMasEficiente {
 
 	
-	
+
 	public static Par masCercanoEnFranja(List<Punto> franja, double min)
 	{
 	   
@@ -16,22 +18,24 @@ public class DyC_SinYOrdenado {
 		
 		par.setDistancia(min);
 		
+	    
+		List<Punto> franjaOrdenada = Utilidades.ordenarPorY(franja);
 	    	    
-	    for (int i = 0; i < franja.size(); ++i){
+	    for (int i = 0; i < franjaOrdenada.size(); ++i){
 	    	
 	 		
-	        for (int j = i+1; j < franja.size(); ++j){
+	        for (int j = i+1; j < franjaOrdenada.size(); ++j){
 	        	
-	        		double deltaY=(franja.get(j).getY() - franja.get(i).getY());
+	        		double deltaY=(franjaOrdenada.get(j).getY() - franjaOrdenada.get(i).getY());
 	            
 	        		if( deltaY > min)
 	        			break;
 	        		else
-	        			 if (Utilidades.distancia(franja.get(i),franja.get(j)) < par.getDistancia()){
+	        			 if (Utilidades.distancia(franjaOrdenada.get(i),franjaOrdenada.get(j)) < par.getDistancia()){
 	        				 
-	        				 par.setDistancia(Utilidades.distancia(franja.get(i),franja.get(j)));
-	        				 par.setP1(franja.get(i));
-	        				 par.setP2(franja.get(j));
+	        				 par.setDistancia(Utilidades.distancia(franjaOrdenada.get(i),franjaOrdenada.get(j)));
+	        				 par.setP1(franjaOrdenada.get(i));
+	        				 par.setP2(franjaOrdenada.get(j));
 	        				 
 	        			 }
 	        }
@@ -49,15 +53,20 @@ public class DyC_SinYOrdenado {
 	{
 		int n = listaPuntos.size();
 		
+		//listaPuntos ya viene ordenada por coordenada x
 		
-	
+	    // si son 2 o 3 usamos el algoritmo simple
 	    if (n <= 3)
 	        return Simple.algoritmoBasico(listaPuntos);
 	 
-	    
+	    // Find the middle point
 	    int medio = n/2;
 	    double xMedio = listaPuntos.get(medio).getX();
 	 
+	    // Consider the vertical line passing
+	    // through the middle point calculate
+	    // the smallest distance dl on left
+	    // of middle point and dr on right side
 	    
 	    List<Punto> listaIzquierda = new ArrayList<Punto>();
         List<Punto> listaDerecha = new ArrayList<Punto>();
@@ -75,13 +84,13 @@ public class DyC_SinYOrdenado {
 	   
 	    
 	    ArrayList<Punto> franja = new ArrayList<Punto>();
-	    List<Punto> listaPuntoOrdenadaPorY = Utilidades.ordenarPorY(listaPuntos);
+	    
 	   
 	    for (int i = 0; i < n; i++){
 	    		
-	    	if (Math.abs(listaPuntoOrdenadaPorY.get(i).getX() - xMedio) < min)
+	    	if (Math.abs(listaPuntos.get(i).getX() - xMedio) < min)
 	    			
-	    				franja.add(listaPuntoOrdenadaPorY.get(i));
+	    				franja.add(listaPuntos.get(i));
 	    	
 	    	
 	    }
@@ -102,10 +111,11 @@ public class DyC_SinYOrdenado {
 	    }
 	   
 	     
+	   
 	}
 	
 	
-	public static Par algoritmo2(List<Punto> listaPuntos){
+	public static Par dyC_PuntosCercanosCascara(List<Punto> listaPuntos){
 		
 		
 		List<Punto> ordenadoX = Utilidades.ordenarPorX(listaPuntos);
@@ -114,7 +124,6 @@ public class DyC_SinYOrdenado {
 		
 	} 
 	 
-	
 	
 	
 	

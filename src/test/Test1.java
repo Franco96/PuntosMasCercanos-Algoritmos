@@ -1,13 +1,15 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import algoritmos.DyC_ConYOrdenado;
 import algoritmos.DyC_SinYOrdenado;
 import algoritmos.Simple;
 import utilidades.*;
+import static java.util.stream.Collectors.toList;
 
-//PROBAMOS EL PRIMER ALGO
+
 
 public class Test1 {
 	
@@ -15,221 +17,59 @@ public class Test1 {
 	public static void main(String[] args) {
 		
 		
-	//Punto [] A = {new Punto(200,2),new Punto(3,2),new Punto(7,2),new Punto(20,2),new Punto(9,2),new Punto(6,2)};
+
 	
-		
-		
+
 		
 		ArrayList<Punto> listaPuntos = new ArrayList<Punto>( );
 		
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2000, 2000));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
+		
+		
+		
+		
+		//Puntos que caigan en franja
+		
+		for (int i = 0; i < 10000; i++) {
+			
+			
+			double randomX = new Random().nextDouble();
+			
+			double randomY = new Random().nextDouble();
+			double min2 = 500;
+			double max2 = 504;
+			double random2 = new Random().nextDouble();
+			double resultY = min2 + (random2 * (max2 - min2));
+			
+			
+			
+			listaPuntos.add(new Punto(resultX, resultY));
+		}
+		
+		
+
+		 
+		
+	
+		
+		 long start3 = System.nanoTime(); 
+		 DyC_ConYOrdenado.cascaraDyC(listaPuntos);	 
+		 long end3 = System.nanoTime();
+		 long microseconds3 = (end3 - start3)/1000;
 		
 		long start = System.nanoTime();
-		Simple.algoritmoBasico(listaPuntos);
+		int a= listaPuntos.size();
 		 long end = System.nanoTime();
 		 
 		 long microseconds1 = (end - start)/1000;
 		 
 		 long start2 = System.nanoTime();
-			DyC_SinYOrdenado.dyC_PuntosCercanosCascara(listaPuntos);
+			//DyC_SinYOrdenado.dyC_PuntosCercanosCascara(listaPuntos);
 			 long end2 = System.nanoTime();
 			 long microseconds2 = (end2 - start2)/1000;
 			 
-			 long start3 = System.nanoTime(); 
-			 DyC_ConYOrdenado.cascaraDyC(listaPuntos);	 
-			 long end3 = System.nanoTime();
-			 long microseconds3 = (end3 - start3)/1000;
+			
+			 
+		
 			 
 			 
 		 System.out.println("algoritmo basico :"+microseconds1+" µs");

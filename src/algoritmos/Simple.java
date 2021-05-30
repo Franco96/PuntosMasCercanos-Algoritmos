@@ -1,55 +1,25 @@
 package algoritmos;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import java.util.List;
 import utilidades.*;
 
 
-
-
-
 public class Simple {
-
-	public static void main(String[] args) {
-	
-		
-		//Tienen que ser positivos los puntos [0,10^9]
-		
-	
-	
-		ArrayList<Punto> listaPuntos = new ArrayList<Punto>( );
-		
-	
-		listaPuntos.add(new Punto(1, 1));
-		listaPuntos.add(new Punto(2, 2));
-		listaPuntos.add(new Punto(1, 0));
-		listaPuntos.add(new Punto(222, 3));
-		listaPuntos.add(new Punto(44410, 3));
-		listaPuntos.add(new Punto(14440, 3));
-	
-			
-		Par puntosMasCercanos = algoritmoBasico(listaPuntos);
-		
-		System.out.println("Tiempo de ejecucion "+puntosMasCercanos.getTiempo());
-		
-		
-		
-	}
-	
-	
-	
-	
-	
 	
 	public static Par algoritmoBasico(List<Punto> listaPuntos ){
 		
-		double Inicio = new Date().getTime(); //Tomamos la fecha de inicio
-		
 		 Par Solucion = new Par();
 		
-		
+		if(listaPuntos.size()==2){
+			
+			Solucion.setP1(listaPuntos.get(0));
+			Solucion.setP2(listaPuntos.get(1));
+			
+			Solucion.setDistancia(Utilidades.distancia(Solucion.getP1(), Solucion.getP2()));
+			
+			return Solucion;
+		}
 	
 		
 		 Solucion.setDistancia(Double.MAX_VALUE); //Como buscamos la distncia minima, inicializamos la variale con el valor maximo
@@ -66,26 +36,12 @@ public class Simple {
 					  	Solucion.setDistancia(distanciaActual);
 	                    Solucion.setP1(listaPuntos.get(i));
 	                    Solucion.setP2(listaPuntos.get(j));
-					
-				
-				}
-				
-				
+				}	
 			}
-			
 		}
-		
-		
-		 double Fin = new Date().getTime(); 
-	       
-		 Solucion.setTiempo(Fin - Inicio);
-		
-		
+	
 		return Solucion;
 			
 	}
 	
-	
-	
-
 }

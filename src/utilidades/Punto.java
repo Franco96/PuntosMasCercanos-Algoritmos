@@ -30,7 +30,15 @@ public class Punto {
 
 	@Override
 	public String toString() {
-		return "Punto [x=" + x + ", y=" + y + "]";
+		return "(x=" + x + ", y=" + y + ")";
+	}
+
+	@Override
+	public boolean equals(Object p) {
+		
+		boolean r = (this.getX()==((Punto) p).getX() && this.getY()==((Punto) p).getY());
+		
+		return r;
 	}
 	
 	

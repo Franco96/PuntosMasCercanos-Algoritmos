@@ -63,6 +63,12 @@ public class Par {
     public void setTiempo(double tiempo) {
         this.tiempo = tiempo;
     }
+
+	@Override
+	public String toString() {
+		return "Par [p1=" + p1.toString() + ", p2=" + p2.toString() + ", distancia=" + distancia
+				+ "]";
+	}
 	
 	
 }

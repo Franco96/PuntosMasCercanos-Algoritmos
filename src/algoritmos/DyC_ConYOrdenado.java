@@ -20,7 +20,6 @@ public class DyC_ConYOrdenado {
 		par.setDistancia(min);
 		
 	    
-	 
 	    	    
 	    for (int i = 0; i < franja.size(); ++i){
 	    	
@@ -50,15 +49,15 @@ public class DyC_ConYOrdenado {
 	
 	
 	
-	public static Par DyC_Y_Ordenado(List<Punto> ordenadosPorX,List<Punto> ordenadosPorY)
-	{
+	public static Par DyC_Y_Ordenado(List<Punto> ordenadosPorX,List<Punto> ordenadosPorY){
+		
 		int n = ordenadosPorX.size();
 		
 		
 	    if (n <= 3)
 	        return Simple.algoritmoBasico(ordenadosPorX);
 	 
-	    // Find the middle point
+	    // PUNTO MEDIO
 	    int medio = n/2;
 	    double xMedio = ordenadosPorX.get(medio).getX();
 	 
@@ -74,33 +73,44 @@ public class DyC_ConYOrdenado {
         listaDerechaX = ordenadosPorX.subList(medio, n);
         
        
-        /*
-        for (Punto punto : ordenadosPorX) {
-        	
-        	if(punto.getX()<=xMedio){
-        		listaIzquierdaX.add(punto);
-        	}
-        	else{
-        		listaDerechaX.add(punto);
-        		}
-        	
-			
-		}
-		*/
-        
+       
+		
+		 
         
         for (Punto punto : ordenadosPorY) {
         	
-        	if((listaIzquierdaY.size()<listaIzquierdaX.size()) && (punto.getX()<=xMedio)){
-        		listaIzquierdaY.add(punto);
-        	}
-        	else{
-        		listaDerechaY.add(punto);
-        		}
         	
+        	
+        	if(listaIzquierdaY.size()<listaIzquierdaX.size()){
+        		
+        			
+        			if(punto.getX()< xMedio)
+        				listaIzquierdaY.add(punto);
+        			
+        			else if(punto.getX() == xMedio){
+        				
+        				
+        					if(listaIzquierdaX.contains(punto))	
+        							listaIzquierdaY.add(punto);
+        					 else
+        						 	listaDerechaY.add(punto);
+        				 }
+        				else
+        					 listaDerechaY.add(punto);
+        					
+        				
+        			
+        		
+        	}else{
+        		listaDerechaY.add(punto);
+        	}
+        	
+        	 	
 			
 		}
+		
         
+       
         
 	    
 	    
@@ -114,15 +124,18 @@ public class DyC_ConYOrdenado {
 	    ArrayList<Punto> franja = new ArrayList<Punto>();
 	    
 	    
-	    for (int i = 0; i < n; i++){
-	    		
-	    	if (Math.abs(ordenadosPorY.get(i).getX() - xMedio) < min)
-	    			
-	    				franja.add(ordenadosPorY.get(i));
-	    	
-	    	
-	    }
 	    
+	    for (Punto punto : ordenadosPorY) {
+	    	
+	    	if (Math.abs(punto.getX() - xMedio) < min)
+    			
+				franja.add(punto);
+			
+		}
+	    		
+	    	
+	    	
+	   
 	    Par parFranja = null;
 	    if(franja.size() > 1)
 	    	  parFranja = masCercanoEnFranja(franja,min);
@@ -137,8 +150,7 @@ public class DyC_ConYOrdenado {
 	    		return parDer;
 	    	
 	    }
-	   
-	     
+	        
 	   
 	}
 	 
@@ -146,21 +158,34 @@ public class DyC_ConYOrdenado {
 	
 	
 	
-	public static Par cascaraDyC(List<Punto> listaPunto){
+	public static Par cascaraDyC(List<Punto> listaPuntos){
 		
 		
-		ArrayList<Punto> listaOrdenadaX = (ArrayList<Punto>) listaPunto.stream().collect(toList());
-		ArrayList<Punto> listaOrdenadaY = (ArrayList<Punto>) listaPunto.stream().collect(toList());
+		List<Punto> ordenadoX = Utilidades.ordenarPorX(listaPuntos);
 		
-		Utilidades.quicksortParaX(listaOrdenadaX, 0, listaOrdenadaX.size()-1);
-		Utilidades.quicksortParaY(listaOrdenadaY, 0, listaOrdenadaY.size()-1);
+		List<Punto> ordenadoY = Utilidades.ordenarPorY(listaPuntos);
 		
+	
 		
-		
-		return DyC_Y_Ordenado(listaOrdenadaX,listaOrdenadaY);
+		return DyC_Y_Ordenado(ordenadoX,ordenadoY);
 		
 		
 	}
+	
+
+/*
+	private static boolean pertenece(List<Punto> lista, Punto punto){
+		
+		for (Punto puntoL : lista) {
+			
+			if(puntoL.getX() == punto.getX() && puntoL.getY()==punto.getY())
+				return true;
+		}
+		
+		return false;
+		
+	}
+	*/
 	
 	
 	
