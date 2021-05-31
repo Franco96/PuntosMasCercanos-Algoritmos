@@ -173,19 +173,7 @@ public class DyC_ConYOrdenado {
 	}
 	
 
-/*
-	private static boolean pertenece(List<Punto> lista, Punto punto){
-		
-		for (Punto puntoL : lista) {
-			
-			if(puntoL.getX() == punto.getX() && puntoL.getY()==punto.getY())
-				return true;
-		}
-		
-		return false;
-		
-	}
-	*/
+
 	
 	
 	

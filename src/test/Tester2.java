@@ -2,49 +2,36 @@ package test;
 
 import java.util.ArrayList;
 
-import algoritmos.DyC_ConYOrdenado;
-import algoritmos.DyC_SinYOrdenado;
-import algoritmos.Simple;
 import utilidades.Par;
 import utilidades.Punto;
 import utilidades.Utilidades;
+import algoritmos.DyC_ConYOrdenado;
+import algoritmos.DyC_SinYOrdenado;
 
 
-//TESTER PARA COMPARAR LOS 3 ALGORITMOS HASTA 2^13 PUNTOS
-public class Tester {
+//TESTER PARA COMPARAR SOLO LOS DOS ALGORITMOS DYC HASTA 2^20 PUNTOS 
+public class Tester2 {
 
-	
-	
 	public static void main(String[] args) {
-	
-		executeAlgoritmoSimple();
-			
+		
+		executeAlgoritmosDyC();
+
 	}
 	
-	
-	public static void executeAlgoritmoSimple(){
-		
+public static void executeAlgoritmosDyC(){
 		
 		
 		ArrayList<Punto> listaPuntos = new ArrayList<Punto>( );
 		int cantPuntos = 0;
 		
-		for(int i = 1;i<14;i++){
+		for(int i = 1;i<21;i++){
 			
 			listaPuntos.clear();
 			cantPuntos =  (int) Math.pow(2, i);
-			System.out.println("Se van a testar para :"+cantPuntos +" puntos");
+			System.out.println("Se van a testar para :"+cantPuntos +"("+2+"^"+i+") puntos");
 			Utilidades.generarPuntosAleatorios(listaPuntos, cantPuntos);
 			
-			
-			long start = System.nanoTime();
-			Par solucionSimple = Simple.algoritmoBasico(listaPuntos);
-			long end = System.nanoTime();
-			long microseconds1 = (end - start)/1000;
-			System.out.println(solucionSimple.toString());
-			System.out.println("Tiempo de ejecion Fuerza bruta: "+microseconds1+" µs");
-			
-			
+
 			long start2 = System.nanoTime();
 			Par solucionSimple2 = DyC_SinYOrdenado.algoritmo2(listaPuntos);
 			long end2 = System.nanoTime();
@@ -67,10 +54,5 @@ public class Tester {
 		}
 		
 	}
-	
 
-	
-	
-	
-	
 }
